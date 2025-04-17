@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import Input from '../Components/Input';
 import { createSchool } from '../Redux/adminSlice';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const AdminSignUp = () => {
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	//UseState holds form data
 	const [form, setForm] = useState({
@@ -35,7 +37,7 @@ const AdminSignUp = () => {
 				name: form.schoolName
 			}
 		}));
-		alert("School Created Successfully");
+		navigate('/admin/dashboard');
 	}
 
 	return (
